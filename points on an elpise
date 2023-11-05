@@ -1,0 +1,72 @@
+import math
+
+def testCircles(width,height):
+  points= []
+  points2=[]
+  if width==height:
+    for i in range(360):
+      x=float((width/360)*i)
+      f= width**2 - x**2
+      y=math.sqrt(f)
+      points.append((x,y))
+    
+  else:
+    if width>height:
+      for i in range(360):
+        x=float((width/360)*i)
+        f= height**2 *(1-((x**2)/width**2))
+        y= math.sqrt(f)
+        points.append((x,y))
+    else:
+      for i in range(360):
+        x=float((width/360)*i)
+        f= height**2 *(1-((x**2)/width**2))
+        y= math.sqrt(f)
+        points.append((x, y))
+
+    for j in points:
+      l= j[0]-(j[0]*2)
+      points2.append((l,j[1]))
+    points2=points2[::-1]
+    points2.extend(points[1:])
+      
+    return points2
+  
+
+def ifTouching(x,y,list):
+  closest=100
+  touching = False
+  for point in list:
+    x1=(point[0])
+    y1=(point[1])
+    d=math.sqrt((x1-x)**2+(y1-y)**2)
+    if d<closest:
+      closest=d
+  if (closest<0.25):
+    touching = True
+  else:
+    touching = False
+  return touching
+
+    
+def toCartesianCoordinate(x,y):
+  a=abs(y-1000)
+  return (x,a)
+
+def fromCartesianCoordinate(x,y):
+  a=abs(y-1000)
+  return (x,a)
+
+  
+def ifInside(x,y,a):
+  inside=False
+  for point in a:
+    x1=(point[0])
+    y1=(point[1])
+    if y<y1:
+      inside= True
+      
+  return inside
+
+  
+  
