@@ -1,6 +1,10 @@
 import math
 
 def testCircles(width,height):
+  """
+  Prints all the points from the radian 0 to pi in a list containing tuples of each point when the origin point is (0,0)
+  """
+  
   points= []
   points2=[]
   if width==height:
@@ -34,6 +38,9 @@ def testCircles(width,height):
   
 
 def ifTouching(x,y,list):
+  """
+  Tests if an object is close to touching the points found on the outside of the elipse down to a .25 pixel which can be used to simulate if it is touching the elipse itself
+  """
   closest=100
   touching = False
   for point in list:
@@ -50,15 +57,23 @@ def ifTouching(x,y,list):
 
     
 def toCartesianCoordinate(x,y):
+  """
+  converts standerd cordinate points to a Cartesian Coordinate
+  """
   a=abs(y-1000)
   return (x,a)
 
 def fromCartesianCoordinate(x,y):
+  """
+  Converts the Cartesian Coordinates back to a normal cordinate plane in python
   a=abs(y-1000)
   return (x,a)
 
   
 def ifInside(x,y,a):
+  """
+  checks if the point given is inside the elipse given the list with all the points on the graph
+  """
   inside=False
   for point in a:
     x1=(point[0])
